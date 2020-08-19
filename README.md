@@ -21,8 +21,8 @@ Essa será uma aplicação para listar os títulos de todos os repositórios que
 
 Este desafio consiste em fazer uso da API criada no desafio de NodeJS, acessando via browser onde serão utilizados os métodos abaixo:
 - GET /repositories - Quando iniciar o yarn na abertura do navegador
-- POST /repositories - Quando clicar no botão <Adicionar>
-- DELETE /repositories/:id - Quando clicar no botão <Remover>
+- POST /repositories - Quando clicar no botão "Adicionar"
+- DELETE /repositories/:id - Quando clicar no botão "Remover"
 
 ### Pré-requisitos
 
