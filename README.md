@@ -20,7 +20,7 @@ listagem, atualização e remoção dos repositórios, e além disso permitir qu
 
 ## :neckbeard: Como executar o projeto
 
-Este desafio refere-se apenas ao backend, tendo como rotas:
+Este desafio refere-se apenas ao backend, tendo sido definidas como rotas:
 - POST /repositories
 - GET /repositories
 - PUT /repositories/:id
