@@ -1,0 +1,36 @@
+@host = http://localhost:3333
+@id = f72f6581-e19d-47e3-b037-5d74beff497b
+
+# Search repositores
+GET {{host}}/repositories HTTP/1.1
+User-Agent: vscode-restclient
+
+### Create repository
+POST {{host}}/repositories
+User-Agent: vscode-restclient
+Content-Type: application/json
+
+{
+    "url": "https://github.com/Rocketseat/umbriel",
+    "title": "Umbriel",
+    "techs": "['Node', 'Express', 'TypeScript']"
+}
+
+### Insert likes into repository Id
+POST {{host}}/repositories/{{id}}/like
+User-Agent: vscode-restclient
+
+### Update repository Id
+PUT {{host}}/repositories/{{id}}
+User-Agent: vscode-restclient
+Content-Type: application/json
+
+{
+    "title": "Desafio Node.js Update",
+    "url": "https://github.com/Serrante/bootcamp-gostack-desafios-000",
+    "techs": "['Node.js', 'Muito maneiro']"
+}
+
+### Delete repository Id
+DELETE {{host}}/repositories/{{id}}
+User-Agent: vscode-restclient
