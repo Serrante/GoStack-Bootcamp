@@ -19,7 +19,7 @@ Essa será uma aplicação para listar os títulos de todos os repositórios que
 
 ## :neckbeard: Como executar o projeto
 
-Este desafio consiste em fazer uso da API criada no desafio de NodeJS, acessando via browser onde serão utilizados os métodos abaixo:
+Este desafio consiste em fazer uso da API criada no desafio de NodeJS, acessando via emulador, utilizando os métodos abaixo:
 - GET /repositories - Quando iniciar o yarn na abertura do emulador
 - POST /repositories/:id/like - Quando clicar no botão Curtir
 
