@@ -50,11 +50,7 @@ class TransactionsRepository {
     return { income, outcome, total };
   }
 
-  public create(
-    title: string,
-    value: number,
-    type: 'income' | 'outcome',
-  ): Transaction {
+  public create({ title, value, type }: CreateTransactionDTO): Transaction {
     const transaction = new Transaction({ title, value, type });
 
     this.transactions.push(transaction);
