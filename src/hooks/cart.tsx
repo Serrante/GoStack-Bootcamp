@@ -30,23 +30,73 @@ const CartProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
-      // TODO LOAD ITEMS FROM ASYNC STORAGE
+      const response = await AsyncStorage.getItem('@GoMarketplace:cart');
+
+      if (response) {
+        setProducts(JSON.parse(response));
+      }
     }
 
     loadProducts();
   }, []);
 
-  const addToCart = useCallback(async product => {
-    // TODO ADD A NEW ITEM TO THE CART
-  }, []);
+  const sendToStorage = useCallback(async () => {
+    await AsyncStorage.setItem(
+      '@GoMarketplace: Cart',
+      JSON.stringify(products),
+    );
+  }, [products]);
 
-  const increment = useCallback(async id => {
-    // TODO INCREMENTS A PRODUCT QUANTITY IN THE CART
-  }, []);
+  const addToCart = useCallback(
+    async product => {
+      const productId = products.find(prod => prod.id === product.id);
 
-  const decrement = useCallback(async id => {
-    // TODO DECREMENTS A PRODUCT QUANTITY IN THE CART
-  }, []);
+      if (productId) {
+        increment(product.id);
+        return;
+      }
+
+      product.quantity = 1;
+
+      setProducts(state => [...state, product]);
+      sendToStorage();
+    },
+    [increment, products, sendToStorage],
+  );
+
+  const increment = useCallback(
+    async id => {
+      const incrementProducts = products.map(product => {
+        if (product.id === id) {
+          product.quantity += 1;
+        }
+
+        return product;
+      });
+
+      setProducts(incrementProducts);
+      sendToStorage();
+    },
+    [products, sendToStorage],
+  );
+
+  const decrement = useCallback(
+    async id => {
+      const decrementProducts = products
+        .map(product => {
+          if (product.id === id) {
+            product.quantity -= 1;
+          }
+
+          return product;
+        })
+        .filter(product => product.quantity >= 1);
+
+      setProducts(decrementProducts);
+      sendToStorage();
+    },
+    [products, sendToStorage],
+  );
 
   const value = React.useMemo(
     () => ({ addToCart, increment, decrement, products }),
