@@ -1,9 +1,11 @@
+.env
+.vscode
 node_modules/
 build/
 temp/
-coverage
-.env
-.vscode
+coverage/
+dist/
+
 ormconfig.json
 Requisitos.md
 
