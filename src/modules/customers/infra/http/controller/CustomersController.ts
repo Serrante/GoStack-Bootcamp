@@ -14,6 +14,7 @@ export default class CustomersController {
       name,
       email,
     });
-    return response.json(customer);
+
+    return response.status(200).json(customer);
   }
 }
