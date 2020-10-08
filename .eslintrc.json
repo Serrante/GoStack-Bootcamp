@@ -31,34 +31,22 @@
   ],
   "rules": {
     "camelcase": "off",
+    "prettier/prettier": "error",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".tsx"]
-      }
-    ],
+    "no-unused-expressions": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"]}],
     "import/prefer-default-export": "off",
-    "prettier/prettier": "error",
-    "class-methods-use-this": "off",
-    "@typescript-eslint/no-unused-vars": [
+    "import/no-duplicates": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": [
       "error", {
-        "argsIgnorePattern": "_"
+        "allowExpressions": true
       }
     ],
-    "no-useless-constructor": "off",
-    // "@typescript-eslint/naming-convention": [
-    //   "error",
-    //   {
-    //     "selector": "interface",
-    //     "format": ["PascalCase"],
-    //     "custom": {
-    //       "regex": "^I[A-Z]",
-    //       "match": true
-    //     }
-    //   }
-    // ],
     "import/extensions": [
       "error",
       "ignorePackages",
